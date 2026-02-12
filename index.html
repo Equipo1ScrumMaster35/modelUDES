@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MERED</title>
+    <style>
+      /* Estilos modernos con bordes redondeados y transiciones */
+      :root {
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+        --accent-color: #28a745;
+        --text-color: #333;
+        --border-radius: 12px;
+        --transition: all 0.3s ease;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        padding: 10px 15px;
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+      }
+
+      nav a:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      section {
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        background-image: url("PaginaUdes.png"); /* Placeholder para imagen de fondo */
+        background-size: cover;
+        background-position: center;
+        color: black;
+        text-align: center;
+        padding: 100px 20px;
+        border-radius: var(--border-radius);
+        margin-bottom: 40px;
+      }
+
+      .hero h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+
+      .data-box {
+        background-color: white;
+        padding: 20px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+      }
+
+      .card {
+        background-color: white;
+        padding: 20px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        transition: var(--transition);
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card h3 {
+        margin-top: 0;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: #0056b3;
+      }
+
+      .btn-secondary {
+        background-color: var(--accent-color);
+      }
+
+      .btn-secondary:hover {
+        background-color: #1e7e34;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: var(--border-radius);
+        max-width: 600px;
+        width: 90%;
+        max-height: 80%;
+        overflow-y: auto;
+      }
+
+      .close {
+        float: right;
+        font-size: 28px;
+        cursor: pointer;
+      }
+
+      .redesign {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .redesign img {
+        width: 45%;
+        border-radius: var(--border-radius);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      table th,
+      table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      table th {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .analysis {
+        margin-bottom: 20px;
+      }
+
+      .pros-cons {
+        display: flex;
+        gap: 20px;
+      }
+
+      .pros-cons div {
+        flex: 1;
+      }
+
+      @media (max-width: 768px) {
+        .redesign {
+          flex-direction: column;
+        }
+        .pros-cons {
+          flex-direction: column;
+        }
+      }
+      /* ===== FOOTER ===== */
+      .footer-bottom {
+        text-align: center;
+        padding: 15px;
+        border-top: 1px solid #ddd;
+        background: var(--secondary-color);
+        border-bottom-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="udes.png"
+          alt=""
+          style="height: 60px; vertical-align: middle; margin-left: 10px"
+        />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#modelos">Modelos de Evaluación y RED</a></li>
+          <li><a href="#redisenio">Rediseño</a></li>
+          <li><a href="#aplicacion">Aplicación de Modelo</a></li>
+          <li><a href="#referencias">Referencias</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+      <div class="data-box">
+        <h1>Modelos de Evaluación de Recursos Educativos Digitales</h1>
+        <p>Andres Felipe Ruiz Calderon y Magda Yuliza Quintero Ramírez</p>
+        <p>Mag. Jose Camilo Giraldo Ovallos</p>
+        <p>Universidad de Santander (UDES)</p>
+        <p>2026</p>
+      </div>
+    </section>
+
+    <section id="modelos">
+      <h2>Modelos de Evaluación y RED</h2>
+      <div class="card">
+        <h3>Introducción</h3>
+        <p>
+          La calidad educativa digital no se limita a la simple digitalización
+          de contenidos, sino que se define como el grado de coherencia y
+          eficacia con el que un Recurso Educativo Digital (RED) logra potenciar
+          el proceso de enseñanza-aprendizaje. Esta calidad se manifiesta cuando
+          el diseño pedagógico y la infraestructura tecnológica convergen para
+          ofrecer experiencias accesibles, motivadoras y técnicamente estables.
+          En este sentido, un recurso de alta calidad es aquel que, además de
+          ser riguroso en sus contenidos, garantiza la usabilidad y la
+          interactividad, permitiendo que el estudiante especialmente en etapas
+          iniciales como la básica primaria construya conocimiento de manera
+          autónoma y significativa dentro de un entorno digital seguro y
+          eficiente.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Modelos de evaluación y RED</h3>
+        <div id="modelos-cards">
+          <div class="card">
+            <h4>Modelo de McCall (1977)</h4>
+            <p>📊</p>
+            <button class="btn" onclick="openModal('mccall')">
+              Ver detalles
+            </button>
+          </div>
+          <div class="card">
+            <h4>Modelo LORI</h4>
+            <p>🌟</p>
+            <button class="btn" onclick="openModal('lori')">
+              Ver detalles
+            </button>
+          </div>
+          <div class="card">
+            <h4>Modelo CODA</h4>
+            <p>📚</p>
+            <button class="btn" onclick="openModal('coda')">
+              Ver detalles
+            </button>
+          </div>
+          <div class="card">
+            <h4>Modelo FURPS</h4>
+            <p>🔧</p>
+            <button class="btn" onclick="openModal('furps')">
+              Ver detalles
+            </button>
+          </div>
+          <div class="card">
+            <h4>Norma UNE 71362</h4>
+            <p>📏</p>
+            <button class="btn" onclick="openModal('une')">Ver detalles</button>
+          </div>
+          <div class="card">
+            <h4>Modelo de Boehm (1978)</h4>
+            <p>🏗️</p>
+            <button class="btn" onclick="openModal('boehm')">
+              Ver detalles
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Seleccionando Modelos</h3>
+        <p>
+          Los tres modelos seleccionados para la evaluación de los RED fueron
+          LORI y CODA; el primer recurso se encuentra alojado en Colombia
+          Aprende y el segundo en Eduteka. En la siguiente tabla se presentan
+          las valoraciones obtenidas para cada uno.
+        </p>
+        <div class="card">
+          <h3>Tabla comparativa de resultados</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Modelo</th>
+                <th>RED 1 (Colombia Aprende)</th>
+                <th>RED 2 (Eduteka)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>LORI</td>
+                <td>4.5 puntos</td>
+                <td>4.0 puntos</td>
+              </tr>
+              <tr>
+                <td>CODA</td>
+                <td>85%</td>
+                <td>78%</td>
+              </tr>
+              <tr>
+                <td>Norma UNE 71362</td>
+                <td>4.6 puntos</td>
+                <td>4.2 puntos</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Pros y Contras de los instrumentos aplicados</h3>
+          <div class="pros-cons">
+            <div>
+              <h4>Modelo LORI</h4>
+              <p>
+                <strong>Pros:</strong> Es el más rápido y visual (escala de
+                estrellas). Ideal para que nosotros como docentes seleccionemos
+                recursos ágilmente.
+              </p>
+              <p>
+                <strong>Contras:</strong> Es muy subjetivo; la interpretación de
+                una estrella puede variar entre cada profesor.
+              </p>
+            </div>
+            <div>
+              <h4>Modelo CODA</h4>
+              <p>
+                <strong>Pros:</strong> El más equilibrado. Une perfectamente la
+                pedagogía con la tecnología en un lenguaje sencillo para el
+                docente.
+              </p>
+              <p>
+                <strong>Contras:</strong> Requiere mucho tiempo para analizar
+                sus 10 criterios con profundidad.
+              </p>
+            </div>
+            <div>
+              <h4>Norma UNE 71362</h4>
+              <p>
+                <strong>Pros:</strong> Es la más profesional y objetiva.
+                Garantiza que el recurso cumpla con estándares de calidad total
+                y accesibilidad.
+              </p>
+              <p>
+                <strong>Contras:</strong> Es extremadamente compleja y larga, lo
+                que la hace difícil de usar para la planeación diaria en el
+                aula.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Usabilidad</h3>
+          <div class="analysis">
+            <h4>1. Facilidad de Navegación e Interfaz</h4>
+            <p>
+              <strong>RED 1 (Lenguaje - Colombia Aprende):</strong> Presenta una
+              usabilidad sobresaliente. La estructura de pestañas superiores
+              permite que el docente guíe la clase paso a paso. Los botones son
+              de gran tamaño, lo cual es vital para el uso en tablets o
+              pantallas táctiles en el aula.
+            </p>
+            <p>
+              <strong>RED 2 (Ciencias - Eduteka):</strong> Posee una interfaz
+              intuitiva, aunque más lineal. Su punto fuerte en usabilidad es el
+              uso de iconos universales que los niños identifican rápidamente
+              sin necesidad de leer instrucciones complejas.
+            </p>
+          </div>
+          <div class="analysis">
+            <h4>2. Carga Cognitiva y Accesibilidad</h4>
+            <p>
+              <strong>Vínculo Pedagógico:</strong> En ambos recursos, se observa
+              que la carga cognitiva está bien distribuida. No saturan al niño
+              con demasiada información en una sola pantalla.
+            </p>
+            <p>
+              <strong>Debilidad Detectada:</strong> La usabilidad se ve limitada
+              para estudiantes con ritmos de aprendizaje más lentos o
+              dificultades visuales, ya que dependen mucho de la lectura de
+              etiquetas. Esto refuerza la necesidad de la adaptación propuesta
+              de incluir asistencia por audio.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Justificación</h3>
+          <p><strong>¿Por qué CODA en nuestro contexto?</strong></p>
+          <p>
+            Se seleccionó el modelo CODA para ser adaptado en la I.E. Luis
+            Carlos Galán por tres razones fundamentales:
+          </p>
+          <ol>
+            <li>
+              <strong>Prioridad Pedagógica:</strong> A diferencia de modelos
+              técnicos, CODA evalúa la capacidad de generar aprendizaje y la
+              motivación, factores críticos para mis estudiantes de segundo
+              grado.
+            </li>
+            <li>
+              <strong>Facilidad de Adaptación:</strong> Sus criterios permiten
+              integrar fácilmente elementos del proyecto, ajustando el lenguaje
+              y la accesibilidad para niños que están consolidando su lectura.
+            </li>
+            <li>
+              <strong>Realidad Tecnológica:</strong> Al trabajar en un entorno
+              urbano con recursos digitales compartidos, CODA me permite
+              asegurar la interoperabilidad y usabilidad, garantizando que el
+              RED funcione correctamente sin importar el dispositivo disponible.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Recursos Educativos Digitales</h3>
+        <div class="redesign">
+          <img src="colombiaAprende.png" alt="Colombia Aprende" />
+          <div>
+            <ul>
+              <li><strong>Área:</strong> Lenguaje</li>
+              <li><strong>Grado:</strong> Segundo</li>
+              <li><strong>Autor:</strong> Ministerio de Educación</li>
+              <li>
+                <strong>Descripción:</strong> Recurso interactivo para
+                aprendizaje de lenguaje.
+              </li>
+            </ul>
+            <a
+              href="https://redaprende.colombiaaprende.edu.co/metadatos/recurso/grado-segundo-cartilla-3-no-1-el-dialogo/"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Ir al Repositorio</a
+            >
+          </div>
+        </div>
+        <div class="redesign">
+          <img src="centroEduteka.png" alt="Eduteka" />
+          <div>
+            <ul>
+              <li><strong>Área:</strong> Ciencias</li>
+              <li><strong>Grado:</strong> Segundo</li>
+              <li><strong>Autor:</strong> Fundación Eduteka</li>
+              <li>
+                <strong>Descripción:</strong> Recurso para ciencias naturales.
+              </li>
+            </ul>
+            <a
+              href="https://edtk.co/p/100042"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Ir al Repositorio</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="redisenio">
+      <h2>Rediseño</h2>
+      <div class="card">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent arcu
+          velit, vehicula eu mauris vitae, lobortis tristique ipsum. Quisque
+          ullamcorper malesuada facilisis.
+        </p>
+        <div class="redesign">
+          <img src="antes.jpg" alt="Antes" />
+          <img src="despues.jpg" alt="Después" />
+        </div>
+        <p>
+          Praesent pellentesque pulvinar libero, nec vulputate arcu. Nulla
+          convallis ligula id nunc elementum, in sodales arcu condimentum.
+          Praesent sit amet consectetur nisi. Nunc egestas augue et placerat
+          pretium. Etiam ac sem ultricies, vestibulum lectus eget, gravida
+          libero. Nullam condimentum ante vitae accumsan aliquam. Proin semper
+          tortor eget odio sagittis, quis feugiat lorem tincidunt.
+        </p>
+      </div>
+    </section>
+
+    <section id="aplicacion">
+      <h2>Aplicación de Modelo de Evaluación</h2>
+      <div class="card">
+        <p>
+          Praesent pellentesque pulvinar libero, nec vulputate arcu. Nulla
+          convallis ligula id nunc elementum, in sodales arcu condimentum.
+          Praesent sit amet consectetur nisi. Nunc egestas augue et placerat
+          pretium. Etiam ac sem ultricies, vestibulum lectus eget, gravida
+          libero. Nullam condimentum ante vitae accumsan aliquam. Proin semper
+          tortor eget odio sagittis, quis feugiat lorem tincidunt.
+        </p>
+      </div>
+    </section>
+
+    <section id="referencias">
+      <h2>Referencias</h2>
+      <div class="card">
+        <ol class="referencias-lista">
+
+            <li>
+                Bernal, P. J. J., Pacheco, A. E. R., Arias, F. H. R., & Calero, G. P. H. (2024).
+                <i>Recursos educativos digitales dualizados desde un diseño instruccional: una Investigación Basada en Diseño. Horizontes pedagógicos, 26(1), 63-73.</i>
+            </li>
+
+            <li>
+                Moreno Quenan, B. E. (2025). Impacto e influencia de los RED (Recursos educativos digitales) en el proceso de enseñanza-aprendizaje.
+                <i>Revista Universitaria De Informática RUNIN, (20), 56–60.</i>
+            </li>
+
+            <li>
+                La importancia de las dimensiones del instrumento LORI en la valoración de los recursos educativos digitales (2024).
+                <i> Instituto Superior Tecnológico Loja, 2(2).</i>
+            </li>
+
+            <li>
+                Kucuk, L., & Ierache, J. S. (2020). Aplicación de rúbrica COdA para evaluación de calidad objetos de aprendizajes basados en realidad aumentada.
+                <i>In XXII Workshop de Investigadores en Ciencias de la Computación (WICC 2020, El Calafate, Santa Cruz).</i>
+            </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- Modales para detalles de modelos -->
+    <div id="modal-mccall" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('mccall')">&times;</span>
+        <h3>Modelo de McCall (1977)</h3>
+        <p>
+          Es el precursor de la evaluación de software. Se enfoca en el punto de
+          vista del usuario a través de tres pilares: operación, revisión y
+          transición. Es ideal para analizar si un recurso es fiable y fácil de
+          mantener.
+        </p>
+        <p><strong>Criterios:</strong> Operación, Revisión, Transición.</p>
+        <p><strong>Métrica:</strong> Escala cualitativa.</p>
+        <p><strong>Metodología:</strong> Evaluación por expertos.</p>
+        <p><strong>Instrumento:</strong> Lista de chequeo.</p>
+      </div>
+    </div>
+    <div id="modal-lori" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('lori')">&times;</span>
+        <h3>Modelo LORI</h3>
+        <p>
+          Es uno de los más populares en educación. Permite evaluar objetos de
+          aprendizaje mediante 9 dimensiones (como motivación y accesibilidad)
+          usando una escala de estrellas. Es muy visual y rápido de aplicar.
+        </p>
+        <p>
+          <strong>Criterios:</strong> 9 dimensiones (motivación, accesibilidad,
+          etc.).
+        </p>
+        <p><strong>Métrica:</strong> Escala de estrellas.</p>
+        <p><strong>Metodología:</strong> Evaluación por expertos y docentes.</p>
+        <p>
+          <strong>Instrumento:</strong> Rúbrica / Matriz de valoración LORI.
+        </p>
+      </div>
+    </div>
+    <div id="modal-coda" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('coda')">&times;</span>
+        <h3>Modelo CODA</h3>
+        <p>
+          Modelo orientado a valorar recursos educativos digitales considerando
+          dimensiones pedagógicas, técnicas y comunicativas.
+        </p>
+        <p>
+          <strong>Criterios:</strong> Calidad pedagógica, calidad técnica,
+          diseño comunicativo, usabilidad, accesibilidad, pertinencia
+          curricular, interactividad.
+        </p>
+        <p>
+          <strong>Métrica:</strong> Escala mixta (cualitativa con apoyo
+          cuantitativo).
+        </p>
+        <p>
+          <strong>Metodología:</strong> Evaluación por expertos y usuarios
+          finales.
+        </p>
+        <p>
+          <strong>Instrumento:</strong> Lista de chequeo y rúbrica de
+          evaluación.
+        </p>
+      </div>
+    </div>
+    <div id="modal-furps" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('furps')">&times;</span>
+        <h3>Modelo FURPS</h3>
+        <p>
+          Propuesto por Hewlett-Packard para evaluar la calidad del software
+          desde requisitos funcionales y no funcionales.
+        </p>
+        <p>
+          <strong>Criterios:</strong>Funcionalidad, Usabilidad, Fiabilidad
+          (Reliability), Rendimiento (Performance), Soportabilidad
+          (Supportability).
+        </p>
+        <p>
+          <strong>Métrica:</strong> Escala cuantitativa y cualitativa según
+          indicadores de desempeño.
+        </p>
+        <p>
+          <strong>Metodología:</strong> Pruebas técnicas y evaluación de
+          usuarios.
+        </p>
+        <p>
+          <strong>Instrumento:</strong> Matriz de evaluación de requisitos /
+          Checklist técnico.
+        </p>
+      </div>
+    </div>
+    <div id="modal-une" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('une')">&times;</span>
+        <h3>Norma UNE 71362</h3>
+        <p>
+          Norma española para la evaluación de la calidad de los Materiales
+          Educativos Digitales (MED).
+        </p>
+        <p>
+          <strong>Criterios:</strong>Calidad didáctica, calidad tecnológica,
+          accesibilidad, usabilidad, diseño, contenidos, interoperabilidad,
+          reutilización.
+        </p>
+        <p>
+          <strong>Métrica:</strong> Escala cuantitativa ponderada por niveles de
+          cumplimiento.
+        </p>
+        <p>
+          <strong>Metodología:</strong> Evaluación sistemática basada en
+          estándares.
+        </p>
+        <p>
+          <strong>Instrumento:</strong> Rúbrica normalizada / Matriz de
+          indicadores UNE 71362.
+        </p>
+      </div>
+    </div>
+    <div id="modal-boehm" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('boehm')">&times;</span>
+        <h3>Modelo de Boehm (1978)</h3>
+        <p>
+          Modelo jerárquico de calidad de software que amplía el de McCall,
+          integrando atributos de alto nivel y subcaracterísticas.
+        </p>
+        <p>
+          <strong>Criterios:</strong>Utilidad (as-is utility), Mantenibilidad,
+          Portabilidad. (Subcriterios: fiabilidad, eficiencia, usabilidad,
+          testabilidad, flexibilidad, entre otros).
+        </p>
+        <p>
+          <strong>Métrica:</strong> Escala cuantitativa y cualitativa
+          jerárquica.
+        </p>
+        <p>
+          <strong>Metodología:</strong> Evaluación por expertos con análisis
+          técnico estructurado.
+        </p>
+        <p>
+          <strong>Instrumento:</strong> Modelo jerárquico / Matriz de factores
+          de calidad.
+        </p>
+      </div>
+    </div>
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+      function openModal(modelo) {
+        document.getElementById("modal-" + modelo).style.display = "flex";
+      }
+
+      function closeModal(modelo) {
+        document.getElementById("modal-" + modelo).style.display = "none";
+      }
+
+      window.onclick = function (e) {
+        document.querySelectorAll(".modal").forEach((modal) => {
+          if (e.target === modal) {
+            modal.style.display = "none";
+          }
+        });
+      };
+    </script>
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+      <div class="footer-bottom">
+        © 2026 UDES · Proyecto Académico · Todos los derechos reservados
+      </div>
+    </footer>
+  </body>
+</html>
